@@ -1,12 +1,16 @@
 package com.adamcassidy011gmail.detectphonemovement;
 
 import android.accessibilityservice.AccessibilityService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.nfc.Tag;
 import android.os.PowerManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,9 +30,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+        /*PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
         PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"DetectMovement: WakelockTag");
-        wakeLock.acquire();
+        wakeLock.acquire();*/
+
         linearAcceleration = 0.00f;
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         linearAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
@@ -51,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION){
+            /*NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "DetectPhoneMovement")
+                    .setContentTitle("Phone movement was detected.");
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);*/
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
