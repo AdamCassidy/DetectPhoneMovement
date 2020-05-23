@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 try{
                     mainObject.put("to","movement");
                     JSONObject notificationObject = new JSONObject();
-                    notificationObject.put("body", "");
+                    notificationObject.put("body", "Phone was moved.");
                     mainObject.put("notification",notificationObject);
 
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,
