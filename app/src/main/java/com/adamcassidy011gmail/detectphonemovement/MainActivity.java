@@ -6,7 +6,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.util.Log;
 import android.view.WindowManager;
 
 import com.android.volley.AuthFailureError;
@@ -81,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     mainObject.put("to","movement");
                     JSONObject notificationObject = new JSONObject();
                     notificationObject.put("body", "Phone was moved.");
-                    mainObject.put("notification",notificationObject);
+                    mainObject.put("notification", notificationObject);
 
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,
                             mainObject,
