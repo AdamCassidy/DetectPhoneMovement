@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "938982168734",
+    "firebase_url": "https://detect-phone-movement.firebaseio.com",
+    "project_id": "detect-phone-movement",
+    "storage_bucket": "detect-phone-movement.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:938982168734:android:b55459411b9d3f5617438f",
+        "android_client_info": {
+          "package_name": "com.adamcassidy011gmail.detectphonemovement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "938982168734-e1sava25acsgh6ipsvur209pql24ejr9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcurJV2hTDV7-zGfgjONExLZi49kBkSOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "938982168734-e1sava25acsgh6ipsvur209pql24ejr9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
