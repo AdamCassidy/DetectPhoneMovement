@@ -6,6 +6,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.android.volley.AuthFailureError;
@@ -77,11 +78,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             if (linearAcceleration > 1) {
                 JSONObject mainObject = new JSONObject();
                 try{
-                    mainObject.put("to","movement");
+                    mainObject.put("to","/topics/"+"movement");
                     JSONObject notificationObject = new JSONObject();
+                    notificationObject.put("body", "ALERT");
                     notificationObject.put("body", "Phone was moved.");
                     mainObject.put("notification", notificationObject);
-
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,
                             mainObject,
                             new Response.Listener<JSONObject>() {
@@ -98,10 +99,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         public Map<String, String> getHeaders() throws AuthFailureError {
                             Map<String,String> header = new HashMap<>();
                             header.put("content-type", "application/json");
-                            header.put("authorization","AAAA2p-y2J4:APA91bHZmn-LMuxZ-RA0-sJxAmQ-ExIPQknLzcjFDOM3VHXBRtzlydjZIzVzBo44Uk9-SGLzZK-zD2eL2lAkvQeb_KUgEdo7_NPoXsBd2cwJCkTkIjcLpYfe0HKMyJCZbsoatAs2qtNY");
+                            header.put("authorization","key=AAAA2p-y2J4:APA91bHZmn-LMuxZ-RA0-sJxAmQ-ExIPQknLzcjFDOM3VHXBRtzlydjZIzVzBo44Uk9-SGLzZK-zD2eL2lAkvQeb_KUgEdo7_NPoXsBd2cwJCkTkIjcLpYfe0HKMyJCZbsoatAs2qtNY");
                             return header;
                         }
                     };
+                    messageQueue.add(request);
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
