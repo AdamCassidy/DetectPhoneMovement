@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
@@ -26,7 +27,6 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
-    private static final String TAG = "DetectPhoneMovement";
     private SensorManager sensorManager;
     private Sensor linearAccelerometer;
     private PowerManager powerManager;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     mainObject.put("to","/topics/"+"movement");
                     JSONObject notificationObject = new JSONObject();
                     notificationObject.put("body", "ALERT");
-                    notificationObject.put("body", "Phone was moved.");
+                    notificationObject.put("body", FirebaseInstanceId.getInstance().toString().substring(43));
                     mainObject.put("notification", notificationObject);
                     JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,URL,
                             mainObject,
