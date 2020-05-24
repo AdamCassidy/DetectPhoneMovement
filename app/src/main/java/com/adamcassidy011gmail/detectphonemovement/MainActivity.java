@@ -6,7 +6,6 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.util.Log;
 import android.view.WindowManager;
 
 import com.android.volley.AuthFailureError;
@@ -43,10 +42,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         messageQueue = Volley.newRequestQueue(this);
         FirebaseMessaging.getInstance().subscribeToTopic("movement");
 
-        /*PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-        PowerManager.WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"DetectMovement: WakelockTag");
-        wakeLock.acquire();*/
-
         linearAcceleration = 0.00f;
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         linearAccelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
@@ -75,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             linearAcceleration = (float) Math.sqrt(x * x + y * y + z * z);
 
             // The linear acceleration (m/s^2) can be adjusted for how sensitive you want it to be.
-            if (linearAcceleration > 1) {
+            if (linearAcceleration > 13.75) {
                 JSONObject mainObject = new JSONObject();
                 try{
                     mainObject.put("to","/topics/"+"movement");
