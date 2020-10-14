@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                         public Map<String, String> getHeaders() throws AuthFailureError {
                             Map<String,String> header = new HashMap<>();
                             header.put("content-type", "application/json");
-                            header.put("authorization","key=AAAA2p-y2J4:APA91bHZmn-LMuxZ-RA0-sJxAmQ-ExIPQknLzcjFDOM3VHXBRtzlydjZIzVzBo44Uk9-SGLzZK-zD2eL2lAkvQeb_KUgEdo7_NPoXsBd2cwJCkTkIjcLpYfe0HKMyJCZbsoatAs2qtNY");
+                            header.put("authorization","key=AAAA2p-y2J4:APA91bHZmn-LMuxZ-RA0-sJxAmQ-ExIPQknLzcjFDOM3VHXBRtzlydjZIzVzBo44Uk9-SGLzZK-zD2eL2lAkvQeb_KUgEdo7_NPoXsBd2cwJCkTkIjcLpYfe0HKMyJCZbsoatAs2qtNYy");
                             return header;
                         }
                     };
